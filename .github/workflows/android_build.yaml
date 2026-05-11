@@ -3,7 +3,7 @@ name: Build Android APK
 
 on:
   push:
-    branches: [ main ] # This triggers the build every time you push to the main branch
+    branches: [ main ]
 
 jobs:
   build:
@@ -27,11 +27,16 @@ jobs:
       - name: Install Dependencies
         run: |
           npm install
+          # Use --yes to skip interactive prompts
           npx cap init "Jujutsu Chess" "com.jujutsu.chess" --web-dir .
 
       - name: Add Android Platform
         run: |
           npx cap add android
+
+      - name: Fix Gradle Permissions
+        run: |
+          chmod +x android/gradlew
 
       - name: Build APK
         run: |
