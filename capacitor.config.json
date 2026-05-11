@@ -1,0 +1,7 @@
+json
+{
+  "appId": "com.jujutsu.chess",
+  "appName": "Jujutsu Chess",
+  "webDir": ".",
+  "bundledWebRuntime": false
+}
